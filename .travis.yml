@@ -4,3 +4,7 @@ rvm:
 - 1.9.3
 - 2.0.0
 script: bundle exec foodcritic --epic-fail any .
+notifications:
+  email:
+    recipients:
+    - github+modcloth-chef-client-cookbook@modcloth.com
