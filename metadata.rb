@@ -1,3 +1,4 @@
+name              'modcloth-chef-client'
 maintainer        "ModCloth, Inc."
 maintainer_email  "platformsphere@modcloth.com"
 license           "All Rights Reserved"
