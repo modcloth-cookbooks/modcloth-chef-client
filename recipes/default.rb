@@ -29,10 +29,10 @@ directory '/var/log/chef'
 
 cron 'chef-client' do
   minute node['modcloth_chef_client']['cron_minute']
-  hour node['modcloth-chef-client']['cron_hour']
-  day node['modcloth-chef-client']['cron_day']
-  month node['modcloth-chef-client']['cron_month']
-  weekday node['modcloth-chef-client']['cron_weekday']
+  hour node['modcloth_chef_client']['cron_hour']
+  day node['modcloth_chef_client']['cron_day']
+  month node['modcloth_chef_client']['cron_month']
+  weekday node['modcloth_chef_client']['cron_weekday']
 
   command 'chef-client -l info ' <<
           "--splay #{node['modcloth_chef_client']['splay']} " <<

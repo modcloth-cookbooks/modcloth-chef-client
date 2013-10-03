@@ -23,9 +23,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-default['modcloth-chef-client']['cron_minute'] = '0,15,30,45'
-default['modcloth-chef-client']['cron_hour'] = '*'
-default['modcloth-chef-client']['cron_day'] = '*'
-default['modcloth-chef-client']['cron_month'] = '*'
-default['modcloth-chef-client']['cron_weekday'] = '*'
+default['modcloth_chef_client']['cron_minute'] = '0,15,30,45'
+default['modcloth_chef_client']['cron_hour'] = '*'
+default['modcloth_chef_client']['cron_day'] = '*'
+default['modcloth_chef_client']['cron_month'] = '*'
+default['modcloth_chef_client']['cron_weekday'] = '*'
 default['modcloth_chef_client']['splay'] = 90
