@@ -25,7 +25,7 @@ cron 'chef-client' do
   command '/tmp/run_chef.sh 2>&1 > /var/log/chef/client.log'
 end
 
-unless node[:recipes].include?('chef-server')
+unless node['recipes'].include?('chef-server')
   file Chef::Config[:validation_key] do
     action :delete
     backup false
