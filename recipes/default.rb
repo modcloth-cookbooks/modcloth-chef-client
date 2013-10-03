@@ -29,9 +29,14 @@ directory '/var/log/chef'
 
 cron 'chef-client' do
   minute node['modcloth_chef_client']['cron_minute']
-  command "chef-client -l info " <<
+  hour node['modcloth_chef_client']['cron_hour']
+  day node['modcloth_chef_client']['cron_day']
+  month node['modcloth_chef_client']['cron_month']
+  weekday node['modcloth_chef_client']['cron_weekday']
+
+  command 'chef-client -l info ' <<
           "--splay #{node['modcloth_chef_client']['splay']} " <<
-          "2>&1 > /var/log/chef/client.log"
+          '2>&1 > /var/log/chef/client.log'
 end
 
 unless node.recipe?('chef-server')
