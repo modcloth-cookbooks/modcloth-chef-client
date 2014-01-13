@@ -29,3 +29,10 @@ default['modcloth_chef_client']['cron_day'] = '*'
 default['modcloth_chef_client']['cron_month'] = '*'
 default['modcloth_chef_client']['cron_weekday'] = '*'
 default['modcloth_chef_client']['splay'] = 90
+
+default['install_prefix'] = (
+  {
+    'solaris2' => '/opt/local',
+    'smartos' => '/opt/local'
+  }.fetch(node['platform'], '/usr/local')
+)

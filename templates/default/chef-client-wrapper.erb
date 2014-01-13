@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+lockfile -r 0 /tmp/chef-client.lock || exit 1
+
+trap 'rm -f /tmp/chef-client.lock' EXIT SIGINT SIGTERM
+
+chef-client -l info --splay <%= node['modcloth_chef_client']['splay'] %> > >(tee /var/log/chef/client.log) 2>&1
+
+# vim:filetype=sh
