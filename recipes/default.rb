@@ -27,6 +27,16 @@
 
 directory '/var/log/chef'
 
+package 'procmail' # to get `lockfile`
+
+ccw_path = "#{node['install_prefix']}/chef-client-wrapper"
+
+template ccw_path do
+  source 'chef-client-wrapper.erb'
+  cookbook 'modcloth-chef-client'
+  mode 0755
+end
+
 cron 'chef-client' do
   minute node['modcloth_chef_client']['cron_minute']
   hour node['modcloth_chef_client']['cron_hour']
@@ -34,9 +44,7 @@ cron 'chef-client' do
   month node['modcloth_chef_client']['cron_month']
   weekday node['modcloth_chef_client']['cron_weekday']
 
-  command 'chef-client -l info ' <<
-          "--splay #{node['modcloth_chef_client']['splay']} " <<
-          '2>&1 > /var/log/chef/client.log'
+  command ccw_path
 end
 
 unless node.recipe?('chef-server')
