@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+
 lockfile -r 0 /tmp/chef-client.lock || exit 1
 
 trap 'rm -f /tmp/chef-client.lock' EXIT SIGINT SIGTERM
